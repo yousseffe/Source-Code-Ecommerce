@@ -207,7 +207,8 @@ export default function Navbar() {
                         scrollToTop()
                         localStorage.removeItem('token');
                         if (!localStorage.getItem('Cart')) {
-                          localStorage.setItem('Cart')
+                          let cartList = [];
+                          localStorage.setItem('Cart', JSON.stringify(cartList))
                         }
                       }}
                     >

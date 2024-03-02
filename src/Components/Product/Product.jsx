@@ -95,7 +95,7 @@ export default function Product({ item }) {
   const handleMouseLeave = () => {
     setIsHovered(false);
   };
-  if(localStorage.getItem('token')){
+  if (localStorage.getItem('token')) {
     return (
       <div className='col-md-4 col-sm-6 col-lg-2'>
         <div className='product cursor-pointer rounded-3 p-3 position-relative'>
@@ -126,8 +126,10 @@ export default function Product({ item }) {
               </div>
             </div>
           </Link>
+          {console.log(item)}
+          {console.log(CartList)}
           {
-            CartList.some(CartItem => CartItem.product._id === item._id) ? (
+            CartList.some(CartItem => CartItem.product?._id === item?._id) ? (
               CartList.map(CartItem => {
                 if (CartItem.product._id === item._id) {
                   return (
@@ -220,7 +222,8 @@ export default function Product({ item }) {
               if (localStorage.getItem('Cart')) {
                 AddProductToLocalStorage(item);
               } else {
-                localStorage.setItem('Cart');
+                let cartList = []
+                localStorage.setItem('Cart', JSON.stringify(cartList))
                 AddProductToLocalStorage(item);
               }
 
@@ -232,5 +235,5 @@ export default function Product({ item }) {
       </div>
     </div >
   );
-  }
-  
+}
+

@@ -20,7 +20,7 @@ export default function CartContextProvider({ children }) {
       cartList = JSON.parse(localStorage.getItem('Cart'))
     }
     else{
-      localStorage.setItem('Cart', cartList);
+      localStorage.setItem('Cart', JSON.stringify(cartList))
     }
     item.count = 1;
     cartList.push(item)

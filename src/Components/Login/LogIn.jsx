@@ -18,10 +18,9 @@ export default function LogIn() {
     setLoading(false);
     try {
       const { data } = await axios.post('https://ecommerce.routemisr.com/api/v1/auth/signin', values);
-      if (data.message === 'success') {
-        setUser(data.user);
+      if (data.message == 'success') {
         localStorage.setItem('token', data.token);
-        if (localStorage.getItem('Cart')) {
+        if (JSON.parse(localStorage.getItem('Cart')).length) {
           const result = await Swal.fire({
             title: 'Confirmation',
             text: 'Do you want to add the items in your cart to your account?',

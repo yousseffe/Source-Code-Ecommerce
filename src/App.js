@@ -28,7 +28,7 @@ import CategoryProducts from './Components/CategoryProducts/CategoryProducts';
 import BrandProducts from './Components/BrandProducts/BrandProducts';
 function App() {
  
-  let routes = createHashRouter([
+  let routes = createBrowserRouter([
     {
       path:'/',element:<MainLayout/>,children:[
         {path:'Home',element:<Home/>},
